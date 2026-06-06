@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="form-page">
+    <form class="form-card wide" method="post">
+        <h1>Raise A Ticket</h1>
+        <label>Plan Type
+            <select name="plan_type" required>
+                <option>Fiber Broadband</option>
+                <option>5G Mobile Data</option>
+                <option>Business Voice</option>
+                <option>OTT Combo</option>
+            </select>
+        </label>
+        <label>Priority
+            <select name="priority" required>
+                <option>High</option>
+                <option>Medium</option>
+                <option>Low</option>
+            </select>
+        </label>
+        <label>Description <textarea name="description" rows="6" required></textarea></label>
+        <button class="btn primary" type="submit">Submit Ticket</button>
+    </form>
+</section>
+{% endblock %}
+

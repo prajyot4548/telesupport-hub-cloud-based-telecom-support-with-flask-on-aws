@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="form-page">
+    <form class="form-card" method="post">
+        <h1>Customer Registration</h1>
+        <label>Name <input name="name" required></label>
+        <label>Mobile <input name="mobile" required></label>
+        <label>Email <input type="email" name="email" required></label>
+        <label>Password <input type="password" name="password" required></label>
+        <label>Address <textarea name="address" required></textarea></label>
+        <button class="btn primary" type="submit">Register</button>
+        <p class="small-link">Already registered? <a href="{{ url_for('login') }}">Login here</a></p>
+    </form>
+</section>
+{% endblock %}
+

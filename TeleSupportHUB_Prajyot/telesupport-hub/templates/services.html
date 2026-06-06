@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-head">
+    <h1>Choose Category for Customer Support</h1>
+    <p>Select and buy a telecom service plan.</p>
+</section>
+<section class="plans">
+    {% for name, description in plans %}
+    <form class="plan-card" method="post">
+        <h2>{{ name }}</h2>
+        <p>{{ description }}</p>
+        <input type="hidden" name="service_name" value="{{ name }}">
+        <button class="btn primary" type="submit">Buy Service</button>
+    </form>
+    {% endfor %}
+</section>
+{% endblock %}
+

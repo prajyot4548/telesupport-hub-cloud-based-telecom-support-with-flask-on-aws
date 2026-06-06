@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+    <div>
+        <p class="eyebrow">Cloud-based telecom customer service portal</p>
+        <h1>TeleSupport Hub</h1>
+        <p class="hero-copy">
+            Manage customer registrations, telecom service purchases, support tickets,
+            and agent resolution workflows through a Flask application ready for AWS EC2
+            and Amazon RDS deployment.
+        </p>
+        <div class="actions">
+            <a class="btn primary" href="{{ url_for('register') }}">Customer Registration</a>
+            <a class="btn secondary" href="{{ url_for('login') }}">Customer Login</a>
+            <a class="btn ghost" href="{{ url_for('agent_login') }}">Agent Login</a>
+        </div>
+    </div>
+    <div class="status-panel">
+        <h2>Project Modules</h2>
+        <ul>
+            <li>Flask backend and session management</li>
+            <li>Customer, purchase, ticket, and agent tables</li>
+            <li>RDS-ready database configuration</li>
+            <li>EC2 deployment-ready project structure</li>
+        </ul>
+    </div>
+</section>
+
+<section class="info-grid">
+    <article>
+        <h3>Scalable Support</h3>
+        <p>Ticket workflows help telecom users submit issues and track status.</p>
+    </article>
+    <article>
+        <h3>Managed Data</h3>
+        <p>Schema follows the required customer, purchase, and ticket data model.</p>
+    </article>
+    <article>
+        <h3>Agent Access</h3>
+        <p>Agents can view user tickets and update issue status securely.</p>
+    </article>
+</section>
+{% endblock %}
+

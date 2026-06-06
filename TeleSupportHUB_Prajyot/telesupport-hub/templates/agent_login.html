@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="form-page">
+    <form class="form-card" method="post">
+        <h1>Agent Login</h1>
+        <label>Email <input type="email" name="email" value="agent@telesupport.com" required></label>
+        <label>Password <input type="password" name="password" value="agent123" required></label>
+        <button class="btn primary" type="submit">Login as Agent</button>
+    </form>
+</section>
+{% endblock %}
+

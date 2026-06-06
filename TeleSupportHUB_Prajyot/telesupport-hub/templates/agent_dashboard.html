@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-head">
+    <h1>Admin Dashboard</h1>
+    <p>Review customer support tickets and update their status.</p>
+</section>
+<section class="table-card">
+    <table>
+        <thead>
+            <tr><th>ID</th><th>Customer</th><th>Mobile</th><th>Plan</th><th>Priority</th><th>Description</th><th>Status</th><th>Action</th></tr>
+        </thead>
+        <tbody>
+            {% for ticket in tickets %}
+            <tr>
+                <td>{{ ticket.id }}</td>
+                <td>{{ ticket.name }}<br><span>{{ ticket.email }}</span></td>
+                <td>{{ ticket.mobile }}</td>
+                <td>{{ ticket.plan_type }}</td>
+                <td>{{ ticket.priority }}</td>
+                <td>{{ ticket.description }}</td>
+                <td><span class="badge">{{ ticket.status }}</span></td>
+                <td>
+                    <form method="post" action="{{ url_for('update_ticket', ticket_id=ticket.id) }}" class="inline-form">
+                        <select name="status">
+                            <option>Open</option>
+                            <option>In Progress</option>
+                            <option>Resolved</option>
+                        </select>
+                        <button class="btn tiny" type="submit">Update</button>
+                    </form>
+                </td>
+            </tr>
+            {% else %}
+            <tr><td colspan="8">No tickets available.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}
+

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-head">
+    <h1>MySQL Database Updates</h1>
+    <p>Use this page as the database-output screenshot if MySQL images are not loading.</p>
+</section>
+
+{% for title, data in [("Users table", customers), ("Purchases table", purchases), ("Tickets table", tickets)] %}
+<section class="table-card">
+    <h2>{{ title }}</h2>
+    <table>
+        <tbody>
+            {% if data %}
+                <tr>
+                    {% for key in data[0].keys() %}
+                        <th>{{ key }}</th>
+                    {% endfor %}
+                </tr>
+                {% for row in data %}
+                    <tr>
+                        {% for value in row %}
+                            <td>{{ value }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr><td>No records yet.</td></tr>
+            {% endif %}
+        </tbody>
+    </table>
+</section>
+{% endfor %}
+{% endblock %}

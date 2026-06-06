@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="form-page">
+    <form class="form-card" method="post">
+        <h1>User Login</h1>
+        <label>Email <input type="email" name="email" value="prajyot2017@gmail.com" required></label>
+        <label>Password <input type="password" name="password" value="pass123" required></label>
+        <button class="btn primary" type="submit">Login</button>
+        <p class="small-link">New user? <a href="{{ url_for('register') }}">Create account</a></p>
+    </form>
+</section>
+{% endblock %}

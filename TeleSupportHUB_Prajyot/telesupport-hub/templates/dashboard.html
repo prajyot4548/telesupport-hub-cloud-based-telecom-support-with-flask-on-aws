@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-head">
+    <h1>Customer Dashboard</h1>
+    <p>Welcome, {{ session.get("customer_name") }}. View services and support tickets.</p>
+    <div class="actions">
+        <a class="btn primary" href="{{ url_for('services') }}">Buy a Service</a>
+        <a class="btn secondary" href="{{ url_for('raise_ticket') }}">Raise Ticket</a>
+    </div>
+</section>
+
+<section class="two-col">
+    <article class="table-card">
+        <h2>Purchased Services</h2>
+        <table>
+            <thead><tr><th>ID</th><th>Service</th><th>Date</th></tr></thead>
+            <tbody>
+                {% for item in purchases %}
+                    <tr><td>{{ item.id }}</td><td>{{ item.service_name }}</td><td>{{ item.purchase_date }}</td></tr>
+                {% else %}
+                    <tr><td colspan="3">No services purchased yet.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </article>
+    <article class="table-card">
+        <h2>View Ticket</h2>
+        <table>
+            <thead><tr><th>ID</th><th>Plan</th><th>Priority</th><th>Status</th></tr></thead>
+            <tbody>
+                {% for ticket in tickets %}
+                    <tr><td>{{ ticket.id }}</td><td>{{ ticket.plan_type }}</td><td>{{ ticket.priority }}</td><td><span class="badge">{{ ticket.status }}</span></td></tr>
+                {% else %}
+                    <tr><td colspan="4">No tickets raised yet.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </article>
+</section>
+{% endblock %}
+
